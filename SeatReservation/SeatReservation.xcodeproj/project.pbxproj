@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		FCBE00AA2DCDF483006FF969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCBE00912DCDF480006FF969 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCBE00982DCDF480006FF969;
+			remoteInfo = SeatReservation;
+		};
+		FCBE00B42DCDF483006FF969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCBE00912DCDF480006FF969 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCBE00982DCDF480006FF969;
+			remoteInfo = SeatReservation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCBE00992DCDF480006FF969 /* SeatReservation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeatReservation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCBE00A92DCDF483006FF969 /* SeatReservationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeatReservationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCBE00B32DCDF483006FF969 /* SeatReservationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeatReservationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FCBE009B2DCDF480006FF969 /* SeatReservation */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SeatReservation;
+			sourceTree = "<group>";
+		};
+		FCBE00AC2DCDF483006FF969 /* SeatReservationTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SeatReservationTests;
+			sourceTree = "<group>";
+		};
+		FCBE00B62DCDF483006FF969 /* SeatReservationUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SeatReservationUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCBE00962DCDF480006FF969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBE00A62DCDF483006FF969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBE00B02DCDF483006FF969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCBE00902DCDF480006FF969 = {
+			isa = PBXGroup;
+			children = (
+				FCBE009B2DCDF480006FF969 /* SeatReservation */,
+				FCBE00AC2DCDF483006FF969 /* SeatReservationTests */,
+				FCBE00B62DCDF483006FF969 /* SeatReservationUITests */,
+				FCBE009A2DCDF480006FF969 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCBE009A2DCDF480006FF969 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE00992DCDF480006FF969 /* SeatReservation.app */,
+				FCBE00A92DCDF483006FF969 /* SeatReservationTests.xctest */,
+				FCBE00B32DCDF483006FF969 /* SeatReservationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCBE00982DCDF480006FF969 /* SeatReservation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCBE00BD2DCDF483006FF969 /* Build configuration list for PBXNativeTarget "SeatReservation" */;
+			buildPhases = (
+				FCBE00952DCDF480006FF969 /* Sources */,
+				FCBE00962DCDF480006FF969 /* Frameworks */,
+				FCBE00972DCDF480006FF969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FCBE009B2DCDF480006FF969 /* SeatReservation */,
+			);
+			name = SeatReservation;
+			packageProductDependencies = (
+			);
+			productName = SeatReservation;
+			productReference = FCBE00992DCDF480006FF969 /* SeatReservation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCBE00A82DCDF483006FF969 /* SeatReservationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCBE00C02DCDF483006FF969 /* Build configuration list for PBXNativeTarget "SeatReservationTests" */;
+			buildPhases = (
+				FCBE00A52DCDF483006FF969 /* Sources */,
+				FCBE00A62DCDF483006FF969 /* Frameworks */,
+				FCBE00A72DCDF483006FF969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCBE00AB2DCDF483006FF969 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FCBE00AC2DCDF483006FF969 /* SeatReservationTests */,
+			);
+			name = SeatReservationTests;
+			packageProductDependencies = (
+			);
+			productName = SeatReservationTests;
+			productReference = FCBE00A92DCDF483006FF969 /* SeatReservationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FCBE00B22DCDF483006FF969 /* SeatReservationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCBE00C32DCDF483006FF969 /* Build configuration list for PBXNativeTarget "SeatReservationUITests" */;
+			buildPhases = (
+				FCBE00AF2DCDF483006FF969 /* Sources */,
+				FCBE00B02DCDF483006FF969 /* Frameworks */,
+				FCBE00B12DCDF483006FF969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCBE00B52DCDF483006FF969 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FCBE00B62DCDF483006FF969 /* SeatReservationUITests */,
+			);
+			name = SeatReservationUITests;
+			packageProductDependencies = (
+			);
+			productName = SeatReservationUITests;
+			productReference = FCBE00B32DCDF483006FF969 /* SeatReservationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCBE00912DCDF480006FF969 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					FCBE00982DCDF480006FF969 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					FCBE00A82DCDF483006FF969 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = FCBE00982DCDF480006FF969;
+					};
+					FCBE00B22DCDF483006FF969 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = FCBE00982DCDF480006FF969;
+					};
+				};
+			};
+			buildConfigurationList = FCBE00942DCDF480006FF969 /* Build configuration list for PBXProject "SeatReservation" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCBE00902DCDF480006FF969;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FCBE009A2DCDF480006FF969 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCBE00982DCDF480006FF969 /* SeatReservation */,
+				FCBE00A82DCDF483006FF969 /* SeatReservationTests */,
+				FCBE00B22DCDF483006FF969 /* SeatReservationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCBE00972DCDF480006FF969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBE00A72DCDF483006FF969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBE00B12DCDF483006FF969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCBE00952DCDF480006FF969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBE00A52DCDF483006FF969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBE00AF2DCDF483006FF969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCBE00AB2DCDF483006FF969 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCBE00982DCDF480006FF969 /* SeatReservation */;
+			targetProxy = FCBE00AA2DCDF483006FF969 /* PBXContainerItemProxy */;
+		};
+		FCBE00B52DCDF483006FF969 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCBE00982DCDF480006FF969 /* SeatReservation */;
+			targetProxy = FCBE00B42DCDF483006FF969 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FCBE00BB2DCDF483006FF969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FCBE00BC2DCDF483006FF969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCBE00BE2DCDF483006FF969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SeatReservation/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jiaqian-Cai.SeatReservation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCBE00BF2DCDF483006FF969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SeatReservation/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jiaqian-Cai.SeatReservation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FCBE00C12DCDF483006FF969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jiaqian-Cai.SeatReservationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeatReservation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeatReservation";
+			};
+			name = Debug;
+		};
+		FCBE00C22DCDF483006FF969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jiaqian-Cai.SeatReservationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeatReservation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SeatReservation";
+			};
+			name = Release;
+		};
+		FCBE00C42DCDF483006FF969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jiaqian-Cai.SeatReservationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SeatReservation;
+			};
+			name = Debug;
+		};
+		FCBE00C52DCDF483006FF969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Jiaqian-Cai.SeatReservationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SeatReservation;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCBE00942DCDF480006FF969 /* Build configuration list for PBXProject "SeatReservation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCBE00BB2DCDF483006FF969 /* Debug */,
+				FCBE00BC2DCDF483006FF969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCBE00BD2DCDF483006FF969 /* Build configuration list for PBXNativeTarget "SeatReservation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCBE00BE2DCDF483006FF969 /* Debug */,
+				FCBE00BF2DCDF483006FF969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCBE00C02DCDF483006FF969 /* Build configuration list for PBXNativeTarget "SeatReservationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCBE00C12DCDF483006FF969 /* Debug */,
+				FCBE00C22DCDF483006FF969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCBE00C32DCDF483006FF969 /* Build configuration list for PBXNativeTarget "SeatReservationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCBE00C42DCDF483006FF969 /* Debug */,
+				FCBE00C52DCDF483006FF969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCBE00912DCDF480006FF969 /* Project object */;
+}
