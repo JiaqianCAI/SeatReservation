@@ -56,6 +56,28 @@ struct ContentView: View {
         }
     }
     
+    var body: some View{
+        TabView(selection: $selectedTab) {
+            NavigationView {
+                ZStack{
+                    backgroundColor.ignoresSafeArea()
+                    VStack(spacing: 0){
+                        VStack(spacing: 20){
+                            HStack{
+                                Image(systemName: "magnifyingglass").foregroundStyle(.gray)
+                                TextField("Search restaurants", text: $searchText).textFieldStyle(PlainTextFieldStyle())
+                            }
+                            .padding()
+                            .background(cardBackground)
+                            .cornerRadius(15)
+                            .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                            .padding(.horizontal)
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     
 }
