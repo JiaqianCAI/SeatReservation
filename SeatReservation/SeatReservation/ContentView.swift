@@ -117,35 +117,45 @@ struct ContentView: View {
                         .background(cardBackground)
                         .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                         
+                        //Scrollable Restaurant List
                         ScrollView {
+                            //Use LazyVStack for efficient vertical list rendering
                             LazyVStack(spacing: 20) {
                                 ForEach(sortedTitles, id: \.title) { item in
                                     let (title, imageName, popularity, address, description) = item
+                                    //Each restaurant item is a clickable NavigationLink
                                     NavigationLink(destination: InformationView(myimage: imageName, title: title, address: address, description: description)) {
+                                        //Custom card view showing restaurant image, title, rating
                                         RestaurantCard(imageName: imageName, title: title, popularity: popularity)
                                     }
                                 }
                             }
-                            .padding()
+                            .padding()//Adds space around the entire vertical list
                         }
                     }
                 }
+                //Set title for the navigation bar
                 .navigationTitle("Discover")
                 .navigationBarTitleDisplayMode(.inline)
             }
+            //Bottom Tab Bar Items
             .tabItem {
+                //Tab icon and label
                 Image(systemName: "house.fill")
                 Text("Home")
             }
-            .tag(0)
+            .tag(0) //Tag used to control selectedTab
             
+            // Bookings Tab
             ListBookingView()
                 .tabItem {
+                    //Tab icon and label for Bookings
                     Image(systemName: "calendar")
                     Text("Bookings")
                 }
                 .tag(1)
         }
+        //Set accent color for selected icon and NavigationLink highlight
         .accentColor(accentColor)
     }
 }
