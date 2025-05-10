@@ -160,30 +160,33 @@ struct ContentView: View {
     }
 }
 
+//Restaurant Card View
+//Displays a restaurant preview with image, title, and star rating
 struct RestaurantCard: View {
     var imageName: String
     var title: String
-    var popularity: Int
+    var popularity: Int //Popularity rating (1–5)
     
     private let accentColor = Color.blue // Changed to blue
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-
+            //Image section with gradient overlay
             ZStack(alignment: .bottomLeading) {
+                //fill mode
                 Image(imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 200)
                     .clipped()
-
+                //Transparent gradient overlay to enhance star contrast
                 LinearGradient(
                     gradient: Gradient(colors: [.clear, Color.black.opacity(0.7)]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
                 .frame(height: 200)
-
+                //Rating stars overlay
                 HStack {
                     ForEach(1...5, id: \.self) { number in
                         Image(systemName: number <= popularity ? "star.fill" : "star")
@@ -197,7 +200,7 @@ struct RestaurantCard: View {
                 .cornerRadius(20)
                 .padding(12)
             }
-            
+            //Text content: title + hint
             VStack(alignment: .leading, spacing: 8) {
                 Text(title)
                     .font(.system(size: 20, weight: .bold))
