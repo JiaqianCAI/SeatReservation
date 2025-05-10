@@ -160,3 +160,57 @@ struct ContentView: View {
     }
 }
 
+struct RestaurantCard: View {
+    var imageName: String
+    var title: String
+    var popularity: Int
+    
+    private let accentColor = Color.blue // Changed to blue
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+
+            ZStack(alignment: .bottomLeading) {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .clipped()
+
+                LinearGradient(
+                    gradient: Gradient(colors: [.clear, Color.black.opacity(0.7)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 200)
+
+                HStack {
+                    ForEach(1...5, id: \.self) { number in
+                        Image(systemName: number <= popularity ? "star.fill" : "star")
+                            .foregroundColor(number <= popularity ? accentColor : .white.opacity(0.5))
+                            .font(.system(size: 14))
+                    }
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(Color.black.opacity(0.5))
+                .cornerRadius(20)
+                .padding(12)
+            }
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text(title)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.primary)
+                
+                Text("Tap to view details")
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+            }
+            .padding(16)
+        }
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+    }
+}
