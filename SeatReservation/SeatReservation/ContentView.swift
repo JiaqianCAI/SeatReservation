@@ -35,7 +35,7 @@ struct ContentView: View {
             return restaurantData.mytitle
         } else {
             // filter by case-insensitive match
-            return restaurantData.mytitle,filter { $0.localizedCaseInsensitiveContains(searchText)}
+            return restaurantData.mytitle.filter { $0.localizedCaseInsensitiveContains(searchText)}
         }
     }
     
@@ -79,19 +79,25 @@ struct ContentView: View {
                             .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                             .padding(.horizontal)
                             
+                            //Sort Menu
                             HStack {
+                                //Static label for "Sort by:"
                                 Text("Sort by:")
                                     .font(.subheadline)
                                     .foregroundColor(.gray)
                                 Spacer()
+                                //Dropdown menu for selecting sort type
                                 Menu {
+                                    //Sort by Name button, shows checkmark if selected
                                     Button(action: { sortType = .name }) {
                                         Label("Name", systemImage: sortType == .name ? "checkmark" : "")
                                     }
+                                    //Sort by Rating button
                                     Button(action: { sortType = .rating }) {
                                         Label("Rating", systemImage: sortType == .rating ? "checkmark" : "")
                                     }
                                 } label: {
+                                    //Current selected sort option with dropdown arrow
                                     HStack {
                                         Text(sortType == .name ? "Name" : "Rating")
                                             .font(.subheadline)
