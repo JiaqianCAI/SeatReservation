@@ -13,22 +13,31 @@ enum SortType {
 }
 //Main content view of the app
 struct ContentView: View {
+    //State to store user search input
     @State private var searchText = ""
+    // Current selected sorting option
     @State private var sortType: SortType = .name
+    //Selected tab
     @State private var selectedTab = 0
+    //Restaurant data source
     var restaurantData = RestaurantData()
     
+    //Main color for dark accents
     private let primaryColor = Color(red: 0.2, green: 0.2, blue: 0.3)
-    private let accentColor = Color.blue
-    private let backgroundColor = Color(red: 0.98, green: 0.98, blue: 0.98)
-    private let cardBackground = Color.white
+    private let accentColor = Color.blue //Accent color for stars and highlights
+    private let backgroundColor = Color(red: 0.98, green: 0.98, blue: 0.98) //Light background for overall screen
+    private let cardBackground = Color.white //Card background for sections
     
+    //Filtered list of restaurant titles based on search input
     var filteredTitles: [String] {
         if searchText.isEmpty {
+            // nothing is searched, return full list
             return restaurantData.mytitle
         } else {
+            // filter by case-insensitive match
             return restaurantData.mytitle,filter { $0.localizedCaseInsensitiveContains(searchText)}
         }
     }
+    
 }
 
