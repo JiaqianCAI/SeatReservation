@@ -78,6 +78,40 @@ struct ContentView: View {
                             .cornerRadius(15)
                             .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                             .padding(.horizontal)
+                            
+                            HStack {
+                                Text("Sort by:")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                Spacer()
+                                Menu {
+                                    Button(action: { sortType = .name }) {
+                                        Label("Name", systemImage: sortType == .name ? "checkmark" : "")
+                                    }
+                                    Button(action: { sortType = .rating }) {
+                                        Label("Rating", systemImage: sortType == .rating ? "checkmark" : "")
+                                    }
+                                } label: {
+                                    HStack {
+                                        Text(sortType == .name ? "Name" : "Rating")
+                                            .font(.subheadline)
+                                            .foregroundColor(.primary)
+                                        Image(systemName: "chevron.down")
+                                            .font(.caption)
+                                    }
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                        .padding(.vertical, 20)
+                        .background(cardBackground)
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                        
+                        
                         }
                     }
                 }
