@@ -56,15 +56,21 @@ struct ContentView: View {
         }
     }
     
+    //Content body
     var body: some View{
         TabView(selection: $selectedTab) {
+            // Home Tab
             NavigationView {
                 ZStack{
+                    //Set background color to ignore safe area
                     backgroundColor.ignoresSafeArea()
                     VStack(spacing: 0){
+                        //Top header section (search and sort)
                         VStack(spacing: 20){
                             HStack{
+                                //Magnifying glass icon (SF Symbol)
                                 Image(systemName: "magnifyingglass").foregroundStyle(.gray)
+                                //User input field for restaurant name
                                 TextField("Search restaurants", text: $searchText).textFieldStyle(PlainTextFieldStyle())
                             }
                             .padding()
