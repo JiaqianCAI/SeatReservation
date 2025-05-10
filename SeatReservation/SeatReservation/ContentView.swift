@@ -39,5 +39,21 @@ struct ContentView: View {
         }
     }
     
+    var sortedTitles:[(title: String, imageName: String, popularity: Int, address: String, descriprion: String)]{
+        switch sortType {
+        case .name:
+            return filteredTitles.compactMap{
+                title in guard let index = restaurantData.mytitle.firstIndex(of: title) else { return nil }
+                return (title: title, imageName: restaurantData.image[index], popularity: restaurantData.popularity[index], address: restaurantData.address[index], description: restaurantData.detailDescription[index])
+            }.sorted(by: { $0.title < $1.title})
+        case .rating:
+            return filteredTitles.compactMap{ title in guard let index = restaurantData.mytitle.firstIndex(of: title) else { return nil}
+                return (title: title, imageName: restaurantData.image[index], popularity: restaurantData.popularity[index], address: restaurantData.address[index], description: restaurantData.detailDescription[index])
+            }.sorted(by: { $0.popularity > $1.popularity })
+        }
+    }
+    
+    
+    
 }
 
