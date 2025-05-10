@@ -117,14 +117,36 @@ struct ContentView: View {
                         .background(cardBackground)
                         .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                         
-                        
+                        ScrollView {
+                            LazyVStack(spacing: 20) {
+                                ForEach(sortedTitles, id: \.title) { item in
+                                    let (title, imageName, popularity, address, description) = item
+                                    NavigationLink(destination: InformationView(myimage: imageName, title: title, address: address, description: description)) {
+                                        RestaurantCard(imageName: imageName, title: title, popularity: popularity)
+                                    }
+                                }
+                            }
+                            .padding()
                         }
                     }
                 }
+                .navigationTitle("Discover")
+                .navigationBarTitleDisplayMode(.inline)
             }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+            .tag(0)
+            
+            ListBookingView()
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Bookings")
+                }
+                .tag(1)
         }
+        .accentColor(accentColor)
     }
-    
-    
 }
 
