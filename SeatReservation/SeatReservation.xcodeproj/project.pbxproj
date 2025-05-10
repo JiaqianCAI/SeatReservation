@@ -35,16 +35,6 @@
 			path = SeatReservation;
 			sourceTree = "<group>";
 		};
-		FCBE00AC2DCDF483006FF969 /* SeatReservationTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SeatReservationTests;
-			sourceTree = "<group>";
-		};
-		FCBE00B62DCDF483006FF969 /* SeatReservationUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SeatReservationUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				FCBE009B2DCDF480006FF969 /* SeatReservation */,
-				FCBE00AC2DCDF483006FF969 /* SeatReservationTests */,
-				FCBE00B62DCDF483006FF969 /* SeatReservationUITests */,
 				FCBE009A2DCDF480006FF969 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				FCBE00AB2DCDF483006FF969 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				FCBE00AC2DCDF483006FF969 /* SeatReservationTests */,
-			);
 			name = SeatReservationTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				FCBE00B52DCDF483006FF969 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				FCBE00B62DCDF483006FF969 /* SeatReservationUITests */,
 			);
 			name = SeatReservationUITests;
 			packageProductDependencies = (
