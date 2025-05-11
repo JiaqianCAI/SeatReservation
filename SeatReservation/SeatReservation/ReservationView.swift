@@ -7,50 +7,64 @@
 
 import SwiftUI
 
+//View for making a reservation
 struct ReservationView: View {
-    var title: String
-    var image: String
+    var title: String //Name of the restaurant
+    var image: String //Name of the image asset
     
+    //Enum to represent the status of each seat
     enum SeatStatus {
-        case available
-        case selected
-        case booked
+        case available //Not taken
+        case selected //Has selected
+        case booked //Already booked
     }
     
+    //Seat statuses：A 2D array (4 rows x 5 columns)
     @State private var seatsData: [[SeatStatus]] = Array(
         repeating: Array(repeating: .available, count: 5),
         count: 4
     )
     
+    //Stores the identifiers of seats selected
     @State private var selectedSeats: [String] = []
+    //Available time slots to choose
     @State private var timesAvailable = ["10:00 AM", "12:30 PM", "3:00 PM", "5:30 PM", "8:00 PM"]
+    //Currently selected time
     @State private var selectedTime = "10:00 AM"
+    //Controls whether a confirmation alert is shown
     @State private var showAlert = false
+    //Controls navigation to the next view
     @State private var navigateToPersonView = false
     
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                
+                //Top section with restaurant image and title
                 ZStack(alignment: .bottomLeading) {
                     Image(image)
                         .resizable()
                         .aspectRatio(3/2, contentMode: .fill)
                         .frame(height: 200)
-                        .clipped()
+                        .clipped() //Make sure the image doesn't overflow
                     
+                    //Add a dark gradient from bottom to top
                     LinearGradient(
                         gradient: Gradient(colors: [.clear, .black.opacity(0.7)]),
                         startPoint: .top,
                         endPoint: .bottom
                     )
                     
+                    //Show the restaurant title at the bottom left
                     Text(title)
                         .font(.title2.weight(.semibold))
                         .foregroundColor(.white)
                         .padding()
                 }
-                .cornerRadius(12)
-                .padding(.horizontal)
+                .cornerRadius(12) //Round the image corners
+                .padding(.horizontal) //Add side padding
+                
+                
             }
         }
     }
