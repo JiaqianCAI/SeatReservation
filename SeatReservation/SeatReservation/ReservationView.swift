@@ -64,6 +64,65 @@ struct ReservationView: View {
                 .cornerRadius(12) //Round the image corners
                 .padding(.horizontal) //Add side padding
                 
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("SELECT TIME")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(timesAvailable, id: \.self) { time in
+                                TimeSlotView(time: time, isSelected: time == selectedTime) {
+                                    selectedTime = time
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                
+                // Seat selection
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("SELECT SEATS")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal)
+                    
+                    if !selectedSeats.isEmpty {
+                        SelectedSeatsView(seats: selectedSeats.joined(separator: ", "))
+                            .padding(.horizontal)
+                    }
+                    
+                    // Seat map
+                    VStack(spacing: 16) {
+                        // Screen indicator
+                        Capsule()
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(height: 4)
+                            .padding(.horizontal, 40)
+                            .padding(.bottom, 8)
+                        
+                        // Seats grid
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: seatsData[0].count), spacing: 16) {
+                            ForEach(0..<seatsData.count, id: \.self) { row in
+                                ForEach(0..<seatsData[row].count, id: \.self) { column in
+                                    SeatView(
+                                        status: seatsData[row][column],
+                                        number: "\(row+1)-\(column+1)"
+                                    ) {
+                                        toggleSeat(row: row, column: column)
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                    .background(Color(.systemGroupedBackground))
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                
                 
             }
         }
