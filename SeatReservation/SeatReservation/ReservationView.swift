@@ -94,23 +94,25 @@ struct ReservationView: View {
                             .padding(.horizontal)
                     }
                     
-                    // Seat map
+                    // Seat map area
                     VStack(spacing: 16) {
-                        // Screen indicator
+                        //Grey line as the screen indicator
                         Capsule()
                             .fill(Color.gray.opacity(0.3))
                             .frame(height: 4)
                             .padding(.horizontal, 40)
                             .padding(.bottom, 8)
                         
-                        // Seats grid
+                        //Seats arranged in a grid layout
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: seatsData[0].count), spacing: 16) {
                             ForEach(0..<seatsData.count, id: \.self) { row in
                                 ForEach(0..<seatsData[row].count, id: \.self) { column in
+                                    //Show each seat with its number and status
                                     SeatView(
                                         status: seatsData[row][column],
                                         number: "\(row+1)-\(column+1)"
                                     ) {
+                                        //Toggle seat selection when tapped
                                         toggleSeat(row: row, column: column)
                                     }
                                 }
