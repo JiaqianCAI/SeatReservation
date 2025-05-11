@@ -125,8 +125,72 @@ struct ReservationView: View {
                     .padding(.horizontal)
                 }
                 
+                HStack(spacing: 20) {
+                    LegendItem(color: .blue, text: "Available")
+                    LegendItem(color: .green, text: "Selected")
+                    LegendItem(color: .gray, text: "Booked")
+                }
+                .padding(.top, 8)
                 
+                Button(action: proceedToBooking) {
+                    HStack {
+                        Text("Continue")
+                            .font(.headline.weight(.semibold))
+                        Spacer()
+                        Image(systemName: "arrow.right")
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(selectedSeats.isEmpty ? Color.gray : Color.blue)
+                    .cornerRadius(10)
+                    .disabled(selectedSeats.isEmpty)
+                }
+                .padding()
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("No Seats Selected"),
+                        message: Text("Please select at least one seat to continue."),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
             }
+            .padding(.vertical)
+        }
+        .background(Color(.systemBackground))
+        .navigationTitle("Reservation")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(
+            NavigationLink(
+                destination: PersonView(seat: selectedSeats.joined(separator: ", "), time: selectedTime),
+                isActive: $navigateToPersonView
+            ) { EmptyView() }
+        )
+    }
+    
+    private func toggleSeat(row: Int, column: Int) {
+        let seatNumber = "\(row+1)-\(column+1)"
+        
+        switch seatsData[row][column] {
+        case .available:
+            seatsData[row][column] = .selected
+            selectedSeats.append(seatNumber)
+        case .selected:
+            seatsData[row][column] = .available
+            selectedSeats.removeAll { $0 == seatNumber }
+        case .booked:
+            break
+        }
+    }
+    
+    private func proceedToBooking() {
+        if selectedSeats.isEmpty {
+            showAlert = true
+        } else {
+            navigateToPersonView = true
         }
     }
 }
+
+//MARK：- Subviews
+
