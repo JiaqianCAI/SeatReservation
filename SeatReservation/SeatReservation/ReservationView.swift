@@ -214,6 +214,8 @@ struct ReservationView: View {
 }
 
 //MARK: - Subviews
+//TimeSlotView: Reusable component to display each time slot
+//Shows whether the time is selected and handles user tap
 struct TimeSlotView: View {
     let time: String
     let isSelected: Bool
@@ -222,16 +224,18 @@ struct TimeSlotView: View {
     var body: some View {
         Button(action: action) {
             Text(time)
-                .font(.subheadline.weight(.medium))
+                .font(.subheadline.weight(.medium)) //White text if selected
                 .foregroundColor(isSelected ? .white : .primary)
                 .padding(.vertical, 8)
                 .padding(.horizontal, 16)
-                .background(isSelected ? Color.blue : Color(.systemFill))
+                .background(isSelected ? Color.blue : Color(.systemFill)) //Blue if selected
                 .cornerRadius(8)
         }
     }
 }
 
+//SeatView: Represents a single seat in the grid
+//Handles color, icon, and border
 struct SeatView: View {
     let status: ReservationView.SeatStatus
     let number: String
@@ -240,10 +244,12 @@ struct SeatView: View {
     var body: some View {
         Button(action: action) {
             VStack(spacing: 4) {
+                //Use system icon to show seat, change if booked
                 Image(systemName: status == .booked ? "chair.lounge.fill" : "chair")
                     .font(.title3)
                     .foregroundColor(seatColor)
                 
+                //Show seat number below the icon
                 Text(number)
                     .font(.caption2)
                     .foregroundColor(.secondary)
@@ -253,12 +259,13 @@ struct SeatView: View {
             .cornerRadius(8)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(borderColor, lineWidth: 1)
+                    .stroke(borderColor, lineWidth: 1) //Colored border to match status
             )
         }
-        .disabled(status == .booked)
+        .disabled(status == .booked) //Disable button if seat is already booked
     }
     
+    //Seat icon color depending on status
     private var seatColor: Color {
         switch status {
         case .available: return .blue
@@ -267,6 +274,7 @@ struct SeatView: View {
         }
     }
     
+    //Background colour for seat depending on status
     private var backgroundColor: Color {
         switch status {
         case .available: return Color(.systemBackground)
@@ -275,6 +283,7 @@ struct SeatView: View {
         }
     }
     
+    //Border color for seat depending on status
     private var borderColor: Color {
         switch status {
         case .available: return .blue
