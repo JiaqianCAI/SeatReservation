@@ -214,4 +214,72 @@ struct ReservationView: View {
 }
 
 //MARK: - Subviews
+struct TimeSlotView: View {
+    let time: String
+    let isSelected: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(time)
+                .font(.subheadline.weight(.medium))
+                .foregroundColor(isSelected ? .white : .primary)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 16)
+                .background(isSelected ? Color.blue : Color(.systemFill))
+                .cornerRadius(8)
+        }
+    }
+}
 
+struct SeatView: View {
+    let status: ReservationView.SeatStatus
+    let number: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 4) {
+                Image(systemName: status == .booked ? "chair.lounge.fill" : "chair")
+                    .font(.title3)
+                    .foregroundColor(seatColor)
+                
+                Text(number)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+            .frame(width: 44, height: 44)
+            .background(backgroundColor)
+            .cornerRadius(8)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(borderColor, lineWidth: 1)
+            )
+        }
+        .disabled(status == .booked)
+    }
+    
+    private var seatColor: Color {
+        switch status {
+        case .available: return .blue
+        case .selected: return .green
+        case .booked: return .gray
+        }
+    }
+    
+    private var backgroundColor: Color {
+        switch status {
+        case .available: return Color(.systemBackground)
+        case .selected: return Color.green.opacity(0.1)
+        case .booked: return Color(.systemFill)
+        }
+    }
+    
+    private var borderColor: Color {
+        switch status {
+        case .available: return .blue
+        case .selected: return .green
+        case .booked: return .clear
+        }
+    }
+}
