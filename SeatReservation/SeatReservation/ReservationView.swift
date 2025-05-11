@@ -293,13 +293,17 @@ struct SeatView: View {
     }
 }
 
+//SelectedSeatsView: Displays the list of seats the user has selected
+//Appears above the seat grid only when there are selected seats
 struct SelectedSeatsView: View {
     let seats: String
     
     var body: some View {
         HStack {
+            //Icon to indicate selected status
             Image(systemName: "checkmark.circle.fill")
                 .foregroundColor(.green)
+            //Show the selected seat numbers
             Text("Selected: \(seats)")
                 .font(.subheadline)
             Spacer()
@@ -310,6 +314,8 @@ struct SelectedSeatsView: View {
     }
 }
 
+//LegendItem: Small colored dot + label used in legend section
+//Explains what seat colors mean (Available / Selected / Booked)
 struct LegendItem: View {
     let color: Color
     let text: String
@@ -326,9 +332,11 @@ struct LegendItem: View {
     }
 }
 
+//Preview for ReservationView
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
+            //Preview a sample reservation screen
             ReservationView(title: "QUAY Restaurant", image: "image1")
         }
     }
