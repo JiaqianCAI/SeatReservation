@@ -292,3 +292,44 @@ struct SeatView: View {
         }
     }
 }
+
+struct SelectedSeatsView: View {
+    let seats: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundColor(.green)
+            Text("Selected: \(seats)")
+                .font(.subheadline)
+            Spacer()
+        }
+        .padding(12)
+        .background(Color.green.opacity(0.1))
+        .cornerRadius(8)
+    }
+}
+
+struct LegendItem: View {
+    let color: Color
+    let text: String
+    
+    var body: some View {
+        HStack(spacing: 6) {
+            Circle()
+                .fill(color)
+                .frame(width: 12, height: 12)
+            Text(text)
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+    }
+}
+
+struct ReservationView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            ReservationView(title: "QUAY Restaurant", image: "image1")
+        }
+    }
+}
