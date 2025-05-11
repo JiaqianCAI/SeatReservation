@@ -125,28 +125,37 @@ struct ReservationView: View {
                     .padding(.horizontal)
                 }
                 
+                //Seat status legend - shows what each seat color means
+                //Blue: available, Green: selected, Gray: booked
                 HStack(spacing: 20) {
                     LegendItem(color: .blue, text: "Available")
                     LegendItem(color: .green, text: "Selected")
                     LegendItem(color: .gray, text: "Booked")
                 }
+                //Adds some space above the legend
                 .padding(.top, 8)
                 
+                //Button to continue the reservation process
                 Button(action: proceedToBooking) {
                     HStack {
                         Text("Continue")
                             .font(.headline.weight(.semibold))
+                        //Push the arrow icon to the right
                         Spacer()
+                        //Arrow icon to show the action goes forward
                         Image(systemName: "arrow.right")
                     }
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
+                    //If user hasn’t selected any seats, show the button in gray (disabled)
+                    //If seats selected, button turns blue and becomes active
                     .background(selectedSeats.isEmpty ? Color.gray : Color.blue)
                     .cornerRadius(10)
                     .disabled(selectedSeats.isEmpty)
                 }
                 .padding()
+                //Alert message shown when user clicks "Continue" without selecting any seats
                 .alert(isPresented: $showAlert) {
                     Alert(
                         title: Text("No Seats Selected"),
@@ -155,34 +164,46 @@ struct ReservationView: View {
                     )
                 }
             }
+            //Vertical spacing around the whole view
             .padding(.vertical)
         }
         .background(Color(.systemBackground))
+        //Set the title of this screen as "Reservation"
         .navigationTitle("Reservation")
         .navigationBarTitleDisplayMode(.inline)
+        // NavigationLink controls the jump to the next screen
+        // This link stays hidden (EmptyView), but when navigateToPersonView becomes true, it will activate
         .background(
             NavigationLink(
                 destination: PersonView(seat: selectedSeats.joined(separator: ", "), time: selectedTime),
+                //This binding controls whether to navigate
                 isActive: $navigateToPersonView
             ) { EmptyView() }
         )
     }
-    
+    //MARK: - Logic Function
+    //This function runs when a seat is tapped.
+    //It updates the status of the seat (available / selected)
     private func toggleSeat(row: Int, column: Int) {
         let seatNumber = "\(row+1)-\(column+1)"
         
         switch seatsData[row][column] {
         case .available:
+            //If seat was available, mark it selected and add it to selected list
             seatsData[row][column] = .selected
             selectedSeats.append(seatNumber)
         case .selected:
+            //Was already selected
             seatsData[row][column] = .available
             selectedSeats.removeAll { $0 == seatNumber }
         case .booked:
+            //Is booked
             break
         }
     }
-    
+    //This function runs when user taps the "Continue" button
+    //If no seats selected, show warning
+    //If seats are selected, move to next screen
     private func proceedToBooking() {
         if selectedSeats.isEmpty {
             showAlert = true
@@ -192,5 +213,5 @@ struct ReservationView: View {
     }
 }
 
-//MARK：- Subviews
+//MARK: - Subviews
 
