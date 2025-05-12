@@ -83,3 +83,62 @@ struct ListBookingView: View {
         }
     }
 }
+
+    struct ReservationCard: View {
+        let reservation: SeatReservationDB
+        let onCancel: () -> Void
+        
+        var body: some View {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(reservation.name)
+                            .font(.headline)
+                        
+                        Text(reservation.phone)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Text(reservation.time)
+                        .font(.subheadline.weight(.semibold))
+                }
+                
+                Divider()
+                
+                HStack {
+                    Label(reservation.seat, systemImage: "chair")
+                        .font(.subheadline)
+                    
+                    Spacer()
+                    
+                    if !reservation.note.isEmpty {
+                        Label(reservation.note, systemImage: "note.text")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
+                Button(action: onCancel) {
+                    Label("Cancel Reservation", systemImage: "xmark")
+                        .font(.subheadline.weight(.medium))
+                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                }
+                .buttonStyle(.bordered)
+                .tint(.red)
+            }
+            .padding()
+            .background(Color(.secondarySystemBackground))
+            .cornerRadius(12)
+        }
+    }
+
+    #Preview {
+        NavigationStack {
+            ListBookingView()
+                .modelContainer(for: SeatReservationDB.self, inMemory: true)
+        }
+    }
