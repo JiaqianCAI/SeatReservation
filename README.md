@@ -11,13 +11,10 @@ This is our group topic "SeatReservation" which is a SwiftUI-based iOS app that 
 **Role:** UI desig & Interaction & README (front-end, search, navigation)
 Responsible for visual stuff and user interation logic, also responsible for assigning group work and completeing README
 - 'ContentView.swift' - main layout (TabView + navigation)
--
--
--
--
--
-
-
+- 'ReservationView' - seat and time selection interface
+- 'ListBookingView' - reservation list and cancel interaction
+- 'SearchBar' - custom search bar for filtering bookings
+- 'Assets' - added restaurant image resources for UI
 
 ### Member B: Ruoyu Bo , SID: 24641007
 **Role:** Data modeling & logic (back-end, state management, info display)
