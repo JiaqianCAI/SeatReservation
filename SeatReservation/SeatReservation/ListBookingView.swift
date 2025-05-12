@@ -9,7 +9,6 @@ import SwiftData
 
 //Displays all the user's reservations that are currently "Booked"
 struct ListBookingView: View {
-struct ListBookingView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [SeatReservationDB]
     @State private var showDeleteConfirmation = false
@@ -84,61 +83,67 @@ struct ListBookingView: View {
     }
 }
 
-    struct ReservationCard: View {
-        let reservation: SeatReservationDB
-        let onCancel: () -> Void
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(reservation.name)
-                            .font(.headline)
-                        
-                        Text(reservation.phone)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+//Shows the details of a single reservation
+//Includes name, phone, time, seat, and optional note
+//Also includes a cancel button that triggers a callback
+struct ReservationCard: View {
+    let reservation: SeatReservationDB
+    let onCancel: () -> Void
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            //Top row: name and phone on the left, time on the right
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(reservation.name)
+                        .font(.headline)
                     
-                    Spacer()
-                    
-                    Text(reservation.time)
-                        .font(.subheadline.weight(.semibold))
-                }
-                
-                Divider()
-                
-                HStack {
-                    Label(reservation.seat, systemImage: "chair")
+                    Text(reservation.phone)
                         .font(.subheadline)
-                    
-                    Spacer()
-                    
-                    if !reservation.note.isEmpty {
-                        Label(reservation.note, systemImage: "note.text")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+                        .foregroundColor(.secondary)
                 }
                 
-                Button(action: onCancel) {
-                    Label("Cancel Reservation", systemImage: "xmark")
-                        .font(.subheadline.weight(.medium))
-                        .frame(maxWidth: .infinity)
-                        .padding(8)
-                }
-                .buttonStyle(.bordered)
-                .tint(.red)
+                Spacer()
+                
+                Text(reservation.time)
+                    .font(.subheadline.weight(.semibold))
             }
-            .padding()
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(12)
+            
+            Divider()
+            
+            //Middle row: seat info and optional note (if exists)
+            HStack {
+                Label(reservation.seat, systemImage: "chair")
+                    .font(.subheadline)
+                
+                Spacer()
+                
+                if !reservation.note.isEmpty {
+                    Label(reservation.note, systemImage: "note.text")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+            }
+            
+            //Cancel button at the bottom
+            Button(action: onCancel) {
+                Label("Cancel Reservation", systemImage: "xmark")
+                    .font(.subheadline.weight(.medium))
+                    .frame(maxWidth: .infinity)
+                    .padding(8)
+            }
+            .buttonStyle(.bordered)
+            .tint(.red)
         }
+        .padding()
+        .background(Color(.secondarySystemBackground))
+        .cornerRadius(12)
     }
+}
 
-    #Preview {
-        NavigationStack {
-            ListBookingView()
-                .modelContainer(for: SeatReservationDB.self, inMemory: true)
-        }
+#Preview {
+    NavigationStack {
+        ListBookingView()
+            .modelContainer(for: SeatReservationDB.self, inMemory: true)
     }
+}
