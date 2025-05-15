@@ -40,7 +40,7 @@ struct ContentView: View {
     }
     
     // Returns a list of tuples with full info (title, image, rating, address, descriptoin)
-    var sortedTitles:[(title: String, imageName: String, popularity: Int, address: String, descriprion: String)]{
+    var sortedTitles:[(title: String, imageName: String, popularity: Int, address: String, description: String)]{
         switch sortType {
         case .name:
             // Sort Alphabetically (A-Z)

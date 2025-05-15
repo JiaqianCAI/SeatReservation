@@ -9,12 +9,9 @@ import SwiftUI
 import SwiftData
 
 @main
+// Main entry point for the Seat Reservation app.
+// This struct configures the SwiftData model and sets up the root ContentView.
 struct SeatReservationApp: App {
-    // Main entry point for the Seat Reservation app.
-    // This struct configures the SwiftData model and sets up the root ContentView.
-    @main
-    struct SeatReservationApp: App {
-
         // Shared SwiftData model container, used to persist SeatReservationDB objects.
         var sharedModelContainer: ModelContainer = {
             // Define the schema for SwiftData (include SeatReservationDB model class)
