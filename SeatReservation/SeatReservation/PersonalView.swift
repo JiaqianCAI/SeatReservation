@@ -109,6 +109,13 @@ struct PersonView: View {
             showAlert = true
             return
         }
+        let key = "bookedSeats_\(time)"
+        let raw = UserDefaults.standard.string(forKey: key) ?? ""
+        var seats = raw.components(separatedBy: ",").filter { !$0.isEmpty }
+        let newSeats = seat.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        seats.append(contentsOf: newSeats)
+        seats = Array(Set(seats))
+        UserDefaults.standard.set(seats.joined(separator: ","), forKey: key)
 
         // Create new reservation object and save
         let newReservation = SeatReservationDB(

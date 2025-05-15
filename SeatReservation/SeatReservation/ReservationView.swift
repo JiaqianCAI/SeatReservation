@@ -187,6 +187,7 @@ struct ReservationView: View {
                     }
                 }
             }
+            selectedSeats = []
         }
         // NavigationLink controls the jump to the next screen
         // This link stays hidden (EmptyView), but when navigateToPersonView becomes true, it will activate
@@ -241,21 +242,6 @@ struct ReservationView: View {
         if selectedSeats.isEmpty {
             showAlert = true
         } else {
-            for seat in selectedSeats {
-                let parts = seat.split(separator: "-")
-                if parts.count == 2,
-                   let row = Int(parts[0]), let col = Int(parts[1]) {
-                    seatsByTime[selectedTime]?[row - 1][col - 1] = .booked
-                }
-            }
-
-            let key = "bookedSeats_\(selectedTime)"
-            let raw = UserDefaults.standard.string(forKey: key) ?? ""
-            var seats = raw.components(separatedBy: ",").filter { !$0.isEmpty }
-            seats.append(contentsOf: selectedSeats)
-            seats = Array(Set(seats)) //
-            UserDefaults.standard.set(seats.joined(separator: ","), forKey: key)
-
             navigateToPersonView = true
         }
     }
