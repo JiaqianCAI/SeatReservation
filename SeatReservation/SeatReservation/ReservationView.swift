@@ -20,10 +20,11 @@ struct ReservationView: View {
     }
     
     //Seat statuses：A 2D array (4 rows x 5 columns)
-    @State private var seatsData: [[SeatStatus]] = Array(
-        repeating: Array(repeating: .available, count: 5),
-        count: 4
-    )
+    @State private var seatsByTime: [String: [[SeatStatus]]] = [:]
+
+    private var seatsData: [[SeatStatus]] {
+        seatsByTime[selectedTime] ?? Array(repeating: Array(repeating: .available, count: 5), count: 4)
+    }
     
     //Stores the identifiers of seats selected
     @State private var selectedSeats: [String] = []
@@ -171,6 +172,18 @@ struct ReservationView: View {
         //Set the title of this screen as "Reservation"
         .navigationTitle("Reservation")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            //Only initialize seat data the first time
+            if seatsByTime.isEmpty {
+                for time in timesAvailable {
+                    //Create a 4*5 seat grid
+                    seatsByTime[time] = Array(
+                        repeating: Array(repeating: .available, count: 5),
+                        count: 4
+                    )
+                }
+            }
+        }
         // NavigationLink controls the jump to the next screen
         // This link stays hidden (EmptyView), but when navigateToPersonView becomes true, it will activate
         .background(
@@ -186,18 +199,20 @@ struct ReservationView: View {
     //It updates the status of the seat (available / selected)
     private func toggleSeat(row: Int, column: Int) {
         let seatNumber = "\(row+1)-\(column+1)"
-        
-        switch seatsData[row][column] {
+
+        switch seatsByTime[selectedTime]?[row][column] {
         case .available:
-            //If seat was available, mark it selected and add it to selected list
-            seatsData[row][column] = .selected
+            //Select the seat and add to selected list
+            seatsByTime[selectedTime]?[row][column] = .selected
             selectedSeats.append(seatNumber)
+
         case .selected:
-            //Was already selected
-            seatsData[row][column] = .available
+            //Unselect
+            seatsByTime[selectedTime]?[row][column] = .available
             selectedSeats.removeAll { $0 == seatNumber }
-        case .booked:
-            //Is booked
+
+        case .booked, .none:
+            //Do nothing if seat is already booked or invalid
             break
         }
     }
@@ -208,6 +223,15 @@ struct ReservationView: View {
         if selectedSeats.isEmpty {
             showAlert = true
         } else {
+            for seat in selectedSeats {
+                let parts = seat.split(separator: "-")
+                if parts.count == 2,
+                   let row = Int(parts[0]), let col = Int(parts[1]) {
+                    //Mark the seat as booked in current time
+                    seatsByTime[selectedTime]?[row - 1][col - 1] = .booked
+                }
+            }
+            //Continue to next view
             navigateToPersonView = true
         }
     }
