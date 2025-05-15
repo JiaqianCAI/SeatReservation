@@ -41,13 +41,13 @@ var address: [String] = [
   ]
     
 var image: [String] = [
-    ""Chapter One",
-    "Restaurant Patrick Guilbaud",
-    "Liath",
-    "The Greenhouse",
-    "Aniar",
-    "Bastible",
-    "Campagne"
+    "chapter_one",
+    "patrick_guilbaud",
+    "liath",
+    "greenhouse",
+    "aniar",
+    "bastible",
+    "campagne"
   ]
 
 //popularity ratings (from 1 to 5 stars) for each restaurant
