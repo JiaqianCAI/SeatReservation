@@ -9,7 +9,6 @@ import SwiftData
 
 @Model
 class SeatReservationDB {
-   
     // The seat(s) selected for this reservation, e.g., "1-2, 2-3"
     var seat:String = ""
     

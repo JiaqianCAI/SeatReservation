@@ -74,15 +74,24 @@ struct ListBookingView: View {
         withAnimation {
             item.status = "Canceled"
             do {
-                //Save changes to the database
+                //Save cancellation to database
                 try modelContext.save()
+                
+                //Remove this seat from UserDefaults for the corresponding time slot
+                let time = item.time
+                let seat = item.seat
+                let key = "bookedSeats_\(time)"
+                let raw = UserDefaults.standard.string(forKey: key) ?? ""
+                var seats = raw.components(separatedBy: ",").filter { !$0.isEmpty }
+                seats.removeAll { $0 == seat }
+                UserDefaults.standard.set(seats.joined(separator: ","), forKey: key)
+                
             } catch {
                 print("Error cancelling reservation: \(error)")
             }
         }
     }
 }
-
 //Shows the details of a single reservation
 //Includes name, phone, time, seat, and optional note
 //Also includes a cancel button that triggers a callback

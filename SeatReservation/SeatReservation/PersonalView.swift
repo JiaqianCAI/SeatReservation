@@ -131,4 +131,3 @@ struct PersonView: View {
         PersonView(seat: "1-3, 2-4", time: "11:00 AM")
     }
 }
-

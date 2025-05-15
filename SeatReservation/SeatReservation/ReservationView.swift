@@ -173,14 +173,18 @@ struct ReservationView: View {
         .navigationTitle("Reservation")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            //Only initialize seat data the first time
-            if seatsByTime.isEmpty {
-                for time in timesAvailable {
-                    //Create a 4*5 seat grid
-                    seatsByTime[time] = Array(
-                        repeating: Array(repeating: .available, count: 5),
-                        count: 4
-                    )
+            for time in timesAvailable {
+                seatsByTime[time] = Array(
+                    repeating: Array(repeating: .available, count: 5),
+                    count: 4
+                )
+                let booked = getBookedSeats(for: time)
+                for seat in booked {
+                    let parts = seat.split(separator: "-")
+                    if parts.count == 2,
+                       let row = Int(parts[0]), let col = Int(parts[1]) {
+                        seatsByTime[time]?[row - 1][col - 1] = .booked
+                    }
                 }
             }
         }
@@ -216,6 +220,20 @@ struct ReservationView: View {
             break
         }
     }
+    
+    // MARK: - Seat Persistence (Save/Load)
+    func saveBookedSeats(_ seats: [String], for time: String) {
+        let key = "bookedSeats_\(time)"
+        let value = seats.joined(separator: ",")
+        UserDefaults.standard.set(value, forKey: key)
+    }
+    func getBookedSeats(for time: String) -> [String] {
+        let key = "bookedSeats_\(time)"
+        let raw = UserDefaults.standard.string(forKey: key) ?? ""
+        return raw.components(separatedBy: ",").filter { !$0.isEmpty }
+    }
+    
+    // MARK: - Reservation Logic
     //This function runs when user taps the "Continue" button
     //If no seats selected, show warning
     //If seats are selected, move to next screen
@@ -227,11 +245,17 @@ struct ReservationView: View {
                 let parts = seat.split(separator: "-")
                 if parts.count == 2,
                    let row = Int(parts[0]), let col = Int(parts[1]) {
-                    //Mark the seat as booked in current time
                     seatsByTime[selectedTime]?[row - 1][col - 1] = .booked
                 }
             }
-            //Continue to next view
+
+            let key = "bookedSeats_\(selectedTime)"
+            let raw = UserDefaults.standard.string(forKey: key) ?? ""
+            var seats = raw.components(separatedBy: ",").filter { !$0.isEmpty }
+            seats.append(contentsOf: selectedSeats)
+            seats = Array(Set(seats)) //
+            UserDefaults.standard.set(seats.joined(separator: ","), forKey: key)
+
             navigateToPersonView = true
         }
     }
